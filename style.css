@@ -13,12 +13,13 @@
 html,
 body {
   min-height: 100vh;
+  min-width: 320px;
 }
 
 .container {
   max-width: 1160px;
   margin: 0 auto;
-  padding: 0 5px;
+  padding: 0 15px;
 }
 
 .header {
@@ -130,6 +131,10 @@ body {
   opacity: 0;
 }
 
+.openMenu {
+  display: none;
+}
+
 .header nav ul li .sublist {
   position: absolute;
   top: 100%;
@@ -168,6 +173,113 @@ body {
   background-color: var(--c-primary);
   height: 3px;
   transition: 300ms all;
+}
+
+@media (max-width: 915px) {
+  .header .container {
+    flex-direction: column;
+  }
+
+  .header nav {
+    margin-top: 15px;
+    transition: 300ms all;
+  }
+}
+
+@media (max-width: 680px) {
+
+  .header .container {
+    flex-direction: row;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  .header .openMenu {
+    display: block;
+    cursor: pointer;
+    transition: 300ms all;
+  }
+
+  .header .openMenu:hover {
+    opacity: 0.5;
+  }
+
+  .header nav {
+    position: fixed;
+    left: -100%;
+    top: 0;
+    bottom: 0;
+    background-color: #fff;
+    z-index: 100;
+    box-shadow: 0 0 10px #888;
+    margin-top: 0;
+    min-width: 70%;
+  }
+
+  .header nav ul {
+    flex-direction: column;
+  }
+
+  .header nav ul li + li {
+    margin-left: 0;
+  }
+
+  .header nav ul li a {
+    width: 100%;
+    display: block;
+    padding: .7em .6em;
+    font-size: 1.4em;
+  }
+
+  .header nav ul li.active a::before {
+    display: none;
+  }
+  
+  .header nav ul li.active a {
+    background-color: #fef;
+    color: #a93;
+  }
+  
+  .header nav ul li a:hover {
+    background-color: #eee;
+  }
+
+  .header nav ul li.expandable {
+    background-image: none;
+    padding-right: 0;
+  }
+
+  .header nav ul li.expandable > a {
+    background-image: url(img/down.svg);
+    background-size: 10px;
+    background-position: right 10px center;
+    background-repeat: no-repeat;
+  }
+
+  .header nav ul li a::before {
+    display: none;
+  }
+
+  .header nav ul li .sublist {
+    position: static;
+    top: initial;
+    border-radius: 0;
+    box-shadow: none;
+    border-top: 2px solid #ccc;
+    border-bottom: 2px solid #ccc;
+    width: 70vw;
+  }
+
+  .header nav ul li .sublist li a:hover {
+    background-color: transparent;
+    color: #496;
+  }
+}
+
+@media (max-width: 315px) {
+  .header nav {
+    width: 200px;
+  }
 }
 
 .hero {
