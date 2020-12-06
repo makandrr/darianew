@@ -1,0 +1,376 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: calc(0.8rem + 0.5vw);
+
+  --c-primary: #4b1d6c;
+}
+
+html,
+body {
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 5px;
+}
+
+.header {
+  min-height: 7vh;
+  padding: 12px 0;
+}
+
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header .logo {
+  display: flex;
+  align-items: center;
+  font-family: Roboto, sans-serif;
+  text-transform: uppercase;
+}
+
+.header .logo h1,
+.header .logo h2 {
+  margin: 0;
+  padding: 0;
+  font-weight: 700;
+  color: var(--c-primary);
+}
+
+.header .logo h1 {
+  font-size: 30px;
+  letter-spacing: 0.08em;
+}
+
+.header .logo h2 {
+  font-size: 12px;
+}
+
+.header .logo > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 0;
+}
+
+@keyframes rotating {
+  from {
+    transform: rotateZ(0deg);
+  }
+
+  to {
+    transform: rotateZ(360deg);
+  }
+}
+
+.header .logo img {
+  width: 57px;
+  height: 57px;
+  /* animation: rotating 3s linear;
+  animation-iteration-count: infinite; */
+}
+
+.header nav ul {
+  display: flex;
+  list-style: none;
+}
+
+.header nav ul li a {
+  font-family: Nunito, sans-serif;
+  color: var(--c-primary);
+  text-decoration: none;
+  font-weight: 700;
+  position: relative;
+  transition: 300ms all;
+  padding: 0 5px;
+}
+
+.header nav ul li a::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  background-color: var(--c-primary);
+  height: 3px;
+  transition: 300ms all;
+}
+
+.header nav ul a:hover::before {
+  transition: 300ms all;
+  width: 100%;
+  background-color: #c59349;
+}
+
+.header nav ul li + li {
+  margin-left: 20px;
+}
+
+.header nav ul li.expandable {
+  background-image: url(img/down.svg);
+  background-size: 10px;
+  background-repeat: no-repeat;
+  background-position: right center;
+  padding-right: 10px;
+  position: relative;
+}
+
+.header nav ul li.expandable a::before {
+  opacity: 0;
+}
+
+.header nav ul li .sublist {
+  position: absolute;
+  top: 100%;
+  z-index: 50;
+  background-color: #fff;
+  box-shadow: 0 0 4px #333;
+  flex-direction: column;
+  padding: 10px 20px;
+  border-radius: 8px;
+  display: none;
+}
+
+.header nav ul li.expandable:hover .sublist {
+  display: flex;
+}
+
+.header nav ul.sublist li + li {
+  margin-left: 0;
+  border-top: 2px solid #000;
+}
+
+.header nav ul.sublist li {
+  padding: 0.5em 0;
+}
+
+.header nav ul.sublist li a:hover {
+  color: #e8d;
+}
+
+.header nav ul li.active a::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--c-primary);
+  height: 3px;
+  transition: 300ms all;
+}
+
+.hero {
+  min-height: 93vh;
+  padding-top: 90px;
+  background-image: url(img/bg.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  position: relative;
+}
+
+.hero .blackbg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--c-primary);
+  z-index: 0;
+  opacity: 0.42;
+}
+
+.hero .container {
+  z-index: 5;
+  position: absolute;
+  top: 90px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.hero h3 {
+  color: #fff;
+  line-height: 65px;
+  opacity: 0.89;
+}
+
+.hero h3 {
+  font-family: 'Open Sans';
+  font-weight: 600;
+  font-style: italic;
+  font-size: 48px;
+  max-width: 522px;
+}
+
+.hero .button {
+  margin-top: 32px;
+}
+
+.hero .hero-image {
+  position: absolute;
+  right: 0;
+  top: -40px;
+  width: 440px;
+}
+
+/* Essay ============================================================ */
+
+.essay {
+  padding: 80px 0;
+}
+
+.essay h2 {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+  font-style: italic;
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.essay p {
+  margin-top: 15px;
+  font-family: Nunito, sans-serif;
+  font: 600;
+  line-height: 27px;
+}
+
+.essay .button {
+  margin-top: 20px;
+}
+
+/* LINKS ======================================================= */
+
+.links {
+  display: flex;
+}
+
+.links a {
+  flex: 1;
+  text-align: center;
+  padding: 80px 0;
+  color: #fff;
+  text-decoration: none;
+  font-family: Nunito, sans-serif;
+  font-size: 30px;
+  background-position: center center !important;
+  transition: 600ms background !important;
+}
+
+.links a:hover {
+  background-size: 105% !important;
+}
+
+/* NEWS ========================================== */
+
+.news {
+  padding: 80px 0;
+}
+
+.news h2 {
+  font-family: 'Open Sans', sans-serif;
+  font-style: italic;
+  font-size: 36px;
+}
+
+.news .grid {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 30px;
+  margin-top: 20px;
+}
+
+.news .new {
+  border: 1px solid #838383;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.news .new h3 {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 33px;
+  color: #1d6c59;
+}
+
+.news .new p {
+  font-family: 'Nunito', sans-serif;
+  font-size: 16px;
+  line-height: 21px;
+  font-weight: 600;
+  margin-top: 20px;
+}
+
+.news .new time {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 600;
+  color: #5a5a5a;
+  font-size: 16px;
+  margin-top: 20px;
+  display: inline-block;
+}
+
+/* Quotes ============================================= */
+
+.quotes {
+  background-color: var(--c-primary);
+  color: #fff;
+  padding: 50px 0;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 600;
+}
+
+.quotes .container {
+  display: flex;
+}
+
+.quotes .quote {
+  margin: 0 1em;
+}
+
+.quotes cite {
+  font-size: 20px;
+  margin-top: 10px;
+  display: inline-block;
+}
+
+.quotes blockquote {
+  font-size: 16px;
+  line-height: 22px;
+}
+
+/* Footer ==================================================== */
+
+.footer {
+  background-color: var(--c-primary);
+  font-family: Roboto;
+}
+
+.footer .container {
+  display: flex;
+  justify-content: space-between;
+  color: #fff;
+  border-top: 2px solid #fff;
+  padding: 13px 0;
+}
+
+.footer .social a {
+  text-decoration: none;
+}
+
+.footer .social a + a {
+  margin-left: 15px;
+}
