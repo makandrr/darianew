@@ -187,7 +187,6 @@ body {
 }
 
 @media (max-width: 680px) {
-
   .header .container {
     flex-direction: row;
     padding-left: 30px;
@@ -227,19 +226,19 @@ body {
   .header nav ul li a {
     width: 100%;
     display: block;
-    padding: .7em .6em;
+    padding: 0.7em 0.6em;
     font-size: 1.4em;
   }
 
   .header nav ul li.active a::before {
     display: none;
   }
-  
+
   .header nav ul li.active a {
     background-color: #fef;
     color: #a93;
   }
-  
+
   .header nav ul li a:hover {
     background-color: #eee;
   }
@@ -337,6 +336,13 @@ body {
   width: 440px;
 }
 
+@media (max-width: 600px) {
+  .hero h3 {
+    font-size: 34px;
+    line-height: 40px;
+  }
+}
+
 /* Essay ============================================================ */
 
 .essay {
@@ -382,6 +388,12 @@ body {
 
 .links a:hover {
   background-size: 105% !important;
+}
+
+@media (max-width: 1048px) {
+  .links {
+    flex-direction: column;
+  }
 }
 
 /* NEWS ========================================== */
@@ -435,6 +447,12 @@ body {
   display: inline-block;
 }
 
+@media (max-width: 750px) {
+  .news .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* Quotes ============================================= */
 
 .quotes {
@@ -464,6 +482,31 @@ body {
   line-height: 22px;
 }
 
+.quotes blockquote::before {
+  content: '"';
+  color: yellowgreen;
+}
+
+.quotes blockquote::after {
+  content: '"';
+  color: yellowgreen;
+}
+
+.quotes .quote + .quote {
+  border-top: 1px solid silver;
+  padding-top: 1em;
+}
+
+@media (max-width: 900px) {
+  .quotes .container {
+    flex-direction: column;
+  }
+
+  .quotes .quote {
+    margin: 1em 0;
+  }
+}
+
 /* Footer ==================================================== */
 
 .footer {
@@ -485,4 +528,12 @@ body {
 
 .footer .social a + a {
   margin-left: 15px;
+}
+
+@media (max-width: 1170px) {
+  .footer .container,
+  .footer {
+    padding-left: 1em;
+    padding-right: 1em;
+  }
 }
